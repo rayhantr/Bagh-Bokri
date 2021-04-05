@@ -1,0 +1,238 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	--cell-size: 100px;
+	--font-size: 3rem;
+	--font-size2: 1.3rem;
+	--black-color: rgba(0, 0, 0, 0.8);
+}
+
+body {
+	margin: 0;
+	align-items: center;
+	justify-content: center;
+	font-family: "Jost", sans-serif;
+}
+
+button {
+	font-family: "Jost", sans-serif;
+}
+
+.title {
+	font-family: "Gugi", cursive;
+	font-size: 4rem;
+	font-weight: 600;
+	width: fit-content;
+	margin: 100px auto 50px;
+	text-align: center;
+	cursor: default;
+	background-color: var(--black-color);
+	/* background: linear-gradient(to top, #000 0%, #fcbe2c 100%); */
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.cell img {
+	max-width: 60%;
+}
+
+.menu {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	margin: 40px auto;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	font-size: var(--font-size2);
+}
+
+.character-image {
+	flex: 1;
+}
+
+.info,
+.button {
+	flex: 2;
+}
+
+.character-image img {
+	width: 60px;
+}
+
+.menu #menuRestartButton {
+	width: 100%;
+	font-size: var(--font-size2);
+	border: 2px solid var(--black-color);
+	border-radius: 5px;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.menu #menuRestartButton:hover {
+	background-color: var(--black-color);
+	color: white;
+}
+
+.board {
+	width: 500px;
+	margin: auto;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+	position: relative;
+	grid-template-columns: repeat(5, auto);
+	border-radius: 10px;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cell {
+	width: var(--cell-size);
+	height: var(--cell-size);
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+}
+
+.winning-message {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	justify-content: end;
+	align-items: center;
+	color: white;
+	font-size: var(--font-size);
+	flex-direction: column;
+}
+
+.winning-message button {
+	margin-top: 20px;
+	font-size: var(--font-size);
+	background-color: white;
+	border: 2px solid white;
+	padding: 0.2em 0.75em;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.winning-message button:hover {
+	background-color: transparent;
+	color: white;
+}
+
+.winning-message.show,
+.menu.show,
+.menu div {
+	display: flex;
+}
+
+/* Play Button Animation */
+
+.playButton {
+	position: fixed;
+	left: 50%;
+	top: 70%;
+	transform: translate(-50%, -50%);
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	box-shadow: inset 0px 0px 0px 9px rgba(0, 0, 0, 0.8);
+}
+
+/* triangle */
+.playButton::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-40%) translateY(-50%);
+	transform-origin: center center;
+	width: 0;
+	height: 0;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	border-left: 45px solid rgba(0, 0, 0, 0.8);
+}
+
+/* pulse wave */
+.playButton:hover::before {
+	content: "";
+	position: absolute;
+	top: -25%;
+	left: -25%;
+	width: 150%;
+	height: 150%;
+	opacity: 1;
+	border-radius: 50%;
+	border: 5px solid rgba(0, 0, 0, 0.75);
+	background: rgba(198, 16, 0, 0);
+	animation-delay: 0s;
+	animation: pulsate 2.5s;
+	animation-direction: forwards;
+	animation-iteration-count: infinite;
+	animation-timing-function: steps;
+}
+
+@keyframes pulsate {
+	0% {
+		transform: scale(0.62);
+		opacity: 1;
+		box-shadow: inset 0px 0px 25px 3px rgba(0, 0, 0, 0.75), 0px 0px 25px 10px rgba(0, 0, 0, 0.75);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 0;
+		box-shadow: none;
+	}
+}
+
+/* Radio Button css */
+.bokri-choice {
+	width: 400px;
+	margin: auto;
+	padding: 5px 0 20px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	text-align: center;
+}
+
+.input-hidden {
+	display: none;
+	margin: 0;
+}
+
+input[type="radio"] + label {
+	display: inline-block;
+	width: 150px;
+	margin-left: -4.5px;
+}
+
+input[type="radio"] + label > img {
+	width: 150px;
+}
+
+#bLeft:checked + label > img {
+	content: url("../img/bokri left.jpg");
+}
+
+#bRight:checked + label > img {
+	content: url("../img/bokri right.jpg");
+}
+
+.hide {
+	display: none;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="./css/main.css" />
+
+		<!-- Font -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link href="https://fonts.googleapis.com/css2?family=Gugi&family=Jost&display=swap" rel="stylesheet" />
+		<!-- Font -->
+		<title>Bagh-Bokri</title>
+	</head>
+
+	<!-- Main body -->
+	<body>
+		<div class="title">BAGH-BOKRI</div>
+		<!-- Radio button -->
+		<div class="bokri-choice">
+			<h1>Select Bokri Placing</h1>
+			<input type="radio" name="bokriPlacing" value="bLeft" id="bLeft" class="input-hidden" />
+			<label for="bLeft">Left Triangle<img src="./img/board left.jpg" alt="bokri left" /> </label>
+
+			<input type="radio" name="bokriPlacing" value="bRight" id="bRight" class="input-hidden" />
+			<label for="bRight">Right Triangle<img src="./img/board right.jpg" alt="bokri right" /> </label>
+		</div>
+		<!-- Play Button -->
+		<div id="playButton" class="button-container">
+			<a href="#" class="playButton startButton"></a>
+		</div>
+		<!-- Menu -->
+		<div class="menu" id="menu">
+			<div class="character-image"><img id="characterImage" /></div>
+			<div class="info" id="characterTurn"></div>
+			<div class="button"><button class="restartButton" id="menuRestartButton">Restart</button></div>
+		</div>
+		<!-- Board display -->
+		<style>
+			.board {
+				background-image: url("./img/board.svg");
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		</style>
+		<div class="board" id="board"></div>
+		<div class="winning-message" id="winningMessage">
+			<div id="message"></div>
+			<button class="restartButton">Play Again</button>
+		</div>
+
+		<!-- Scripts -->
+		<script type="text/javascript" src="./js/script.js"></script>
+	</body>
+</html>
